@@ -7,8 +7,8 @@ namespace SocketConnection
 {
     public class Connection
     {
-        private string hostname;
-        private int port;
+        readonly string hostname;
+        readonly int port;
         int byteCount;
         NetworkStream stream;
         byte[] sendData;
@@ -23,12 +23,14 @@ namespace SocketConnection
         {
             Console.WriteLine("Please Enter a IPV4 Address");
             hostname = Console.ReadLine();
+            port = Port;
         }
 
         public Connection(string IPV4)
         {
             Console.WriteLine("Please Enter a Port Number");
             port = int.Parse(Console.ReadLine());
+            hostname = IPV4;
         }
 
         ~Connection()
